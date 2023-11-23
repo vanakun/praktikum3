@@ -19,7 +19,7 @@ class _LoginState extends State<Login> {
           'SESI 9',
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
             fontSize: 32.0,
           ),
         ),

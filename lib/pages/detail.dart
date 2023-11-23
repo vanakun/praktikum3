@@ -63,7 +63,7 @@ class _DetailPageState extends State<DetailPage> {
           Padding(
             padding: const EdgeInsets.only(left: 19.5),
             child: Text(
-              '\$1',
+              '\$2',
               style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.bold,
@@ -84,31 +84,36 @@ class _DetailPageState extends State<DetailPage> {
   }
 
   Widget _buildLimitedStockTextAndIcon(String stockMessage) {
-    return GestureDetector(
-      child: Container(
-        width: 120.0,
-        height: 170.0,
-        child: Card(
-          child: OverflowBox(
-            maxWidth: double.infinity,
-            child: Align(
-              alignment: FractionalOffset.bottomLeft,
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(
-                  stockMessage,
-                  style: TextStyle(color: Colors.orange),
+  return GestureDetector(
+    child: Container(
+      width: 120.0,
+      height: 170.0,
+      child: Card(
+        child: OverflowBox(
+          maxWidth: double.infinity,
+          child: Align(
+            alignment: FractionalOffset.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(
+                stockMessage.toUpperCase(), // Convert to uppercase
+                style: TextStyle(
+                  color: Colors.orange,
+                  fontWeight: FontWeight.w800,
+                  fontSize: 10, // Make the text bold
                 ),
               ),
             ),
           ),
         ),
       ),
-      onTap: () {
-        _showMyDialog(context);
-      },
-    );
-  }
+    ),
+    onTap: () {
+      _showMyDialog(context);
+    },
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +123,7 @@ class _DetailPageState extends State<DetailPage> {
           'SESI 9',
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
             fontSize: 32.0,
           ),
         ),

@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
           'SESI 9',
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.bold,
+            fontWeight: FontWeight.w900,
             fontSize: 32.0,
           ),
         ),
@@ -43,12 +43,24 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(width: 10),
-                  Text(
-                    'Live Now\n11.11 Sale',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
+                Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Live Now',
+                        style: TextStyle(
+                          fontSize: 26,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        '11.11 Sale',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -61,14 +73,27 @@ class _HomePageState extends State<HomePage> {
                       width: 120.0,
                       height: 125.0,
                       child: Card(
-                        child: Center(
-                          child: Text(
-                            '11.11\n19 PM',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            textAlign: TextAlign.center,
+                       child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center, // Center text vertically
+                            children: [
+                              Text(
+                                '11.11',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                '19 PM',
+                                style: TextStyle(
+                                  fontSize: 12, // Set the desired smaller font size
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -179,12 +204,26 @@ class _HomePageState extends State<HomePage> {
                       height: 125.0,
                       child: Card(
                         child: Center(
-                          child: Text(
-                            '11.11\n19 PM',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center, // Center text vertically
+                            children: [
+                              Text(
+                                '11.11',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                '19 PM',
+                                style: TextStyle(
+                                  fontSize: 12, // Set the desired smaller font size
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
                           ),
                         ),
                       ),
