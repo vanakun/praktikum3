@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prak_1/component/BottomNavigationBar.dart';
 import 'package:prak_1/pages/detail.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +25,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.red,
+        automaticallyImplyLeading: false, // Menghapus tombol back
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -52,73 +56,70 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                    GestureDetector(
-                        child: Container(
-                          width: 120.0,
-                          height: 125.0,
-                          child: Card(
-                              child: Center( // Center the Text widget
-                                child: Text(
-                                      '11.11\n19 PM',
-                                style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                ),
-                              textAlign: TextAlign.center, // Center-align the text
+                  GestureDetector(
+                    child: Container(
+                      width: 120.0,
+                      height: 125.0,
+                      child: Card(
+                        child: Center(
+                          child: Text(
+                            '11.11\n19 PM',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
+                    ),
                     onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailPage()),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => DetailPage()),
                       );
                     },
                   ),
-                    
-                   GestureDetector(
-                        child: Container(
-                          width: 120.0,
-                          height: 125.0,
-                          child: Card(
-                              child: Center( // Center the Text widget
-                                child: Text(
-                                      'Gratis\nOngkir',
-                                style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                ),
-                              textAlign: TextAlign.center, // Center-align the text
+                  GestureDetector(
+                    child: Container(
+                      width: 120.0,
+                      height: 125.0,
+                      child: Card(
+                        child: Center(
+                          child: Text(
+                            'Gratis\nOngkir',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
+                    ),
                     onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailPage()),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => DetailPage()),
                       );
                     },
                   ),
-                   GestureDetector(
-                        child: Container(
-                          width: 120.0,
-                          height: 125.0,
-                          child: Card(
-                              child: Center( // Center the Text widget
-                                child: Text(
-                                      'Flash\nSale',
-                                style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                ),
-                              textAlign: TextAlign.center, // Center-align the text
+                  GestureDetector(
+                    child: Container(
+                      width: 120.0,
+                      height: 125.0,
+                      child: Card(
+                        child: Center(
+                          child: Text(
+                            'Flash\nSale',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
+                    ),
                     onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailPage()),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => DetailPage()),
                       );
                     },
                   ),
@@ -128,72 +129,69 @@ class _HomePageState extends State<HomePage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   GestureDetector(
-                        child: Container(
-                          width: 120.0,
-                          height: 125.0,
-                          child: Card(
-                              child: Center( // Center the Text widget
-                                child: Text(
-                                      'Murah\nLebay',
-                                style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                ),
-                              textAlign: TextAlign.center, // Center-align the text
+                  GestureDetector(
+                    child: Container(
+                      width: 120.0,
+                      height: 125.0,
+                      child: Card(
+                        child: Center(
+                          child: Text(
+                            'Murah\nLebay',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
+                    ),
                     onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
-                   GestureDetector(
-                        child: Container(
-                          width: 120.0,
-                          height: 125.0,
-                          child: Card(
-                              child: Center( // Center the Text widget
-                                child: Text(
-                                      'Tagihan',
-                                style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                ),
-                              textAlign: TextAlign.center, // Center-align the text
-                            ),
-                          ),
-                        ),
-                      ),
-                    onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailPage()),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => DetailPage()),
                       );
                     },
                   ),
                   GestureDetector(
-                        child: Container(
-                          width: 120.0,
-                          height: 125.0,
-                          child: Card(
-                              child: Center( // Center the Text widget
-                                child: Text(
-                                      '11.11\n19 PM',
-                                style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                ),
-                              textAlign: TextAlign.center, // Center-align the text
+                    child: Container(
+                      width: 120.0,
+                      height: 125.0,
+                      child: Card(
+                        child: Center(
+                          child: Text(
+                            'Tagihan',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
                       ),
+                    ),
                     onTap: () {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => DetailPage()),
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => DetailPage()),
+                      );
+                    },
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      width: 120.0,
+                      height: 125.0,
+                      child: Card(
+                        child: Center(
+                          child: Text(
+                            '11.11\n19 PM',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => DetailPage()),
                       );
                     },
                   ),
@@ -202,6 +200,26 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: MyBottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+
+          switch (index) {
+            case 0:
+              // Navigasi ke halaman pertama (Home)
+              Navigator.pushNamed(context, '/home');
+              break;
+            case 1:
+              // Navigasi ke halaman detail
+              Navigator.pushNamed(context, '/detail');
+              break;
+            // ... (Tambahkan case sesuai dengan jumlah item di BottomNavigationBar)
+          }
+        },
       ),
     );
   }
