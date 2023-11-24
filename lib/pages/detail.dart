@@ -121,28 +121,21 @@ class _DetailPageState extends State<DetailPage> {
 }
 Widget _buildCardWithImage() {
   return GestureDetector(
-    child: Container(
-      width: 120.0,
-      height: 200.0,
+    child: SingleChildScrollView(
       child: Card(
         color: Color.fromARGB(255, 227, 224, 224),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+        ),
         child: Column(
           children: [
-            // Image with BoxFit.cover
-            Image.asset(
-              'assets/product.jpg',
-              width: double.infinity,
-              height: 120.0,
-              fit: BoxFit.cover,
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Product Name',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.0), // Same radius as Card
+              child: Image.asset(
+                'assets/product.jpg',
+                width: 110.0,
+                height: 110.0,
+                fit: BoxFit.cover,
               ),
             ),
           ],
@@ -154,6 +147,8 @@ Widget _buildCardWithImage() {
     },
   );
 }
+
+
 
 
   @override

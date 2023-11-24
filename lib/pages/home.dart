@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
           'SESI 9',
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
             fontSize: 32.0,
           ),
         ),
