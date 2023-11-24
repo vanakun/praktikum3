@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prak_1/component/BottomNavigationBar.dart';
 import 'package:prak_1/pages/detail.dart';
+import 'package:prak_1/pages/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,6 +12,84 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentIndex = 0;
+
+  Widget _buildCard(String title, String subtitle, VoidCallback onTap) {
+    return GestureDetector(
+      child: Container(
+        width: 120.0,
+        height: 125.0,
+        child: Card(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  subtitle,
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      onTap: onTap,
+    );
+  }
+
+  Widget _buildImageAndText() {
+  return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProfileScreen()),
+      );
+    },
+    child: Row(
+      children: [
+        Container(
+          height: 130 - 20,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(3),
+            child: Image.asset('assets/profile.jpg'),
+          ),
+        ),
+        SizedBox(width: 10),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Live Now',
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            Text(
+              '11.11 Sale',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +104,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         backgroundColor: Colors.red,
-        automaticallyImplyLeading: false, // Menghapus tombol back
+        automaticallyImplyLeading: false,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -33,207 +112,47 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              _buildImageAndText(),
+              SizedBox(height: 20),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    height: 130 - 20,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(3),
-                      child: Image.asset('assets/profile.jpg'),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Live Now',
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '11.11 Sale',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ],
-                  ),
+                  _buildCard('11.11', '19 PM', () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  }),
+                  _buildCard('Gratis', 'Ongkir', () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  }),
+                  _buildCard('Flash', 'Sale', () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  }),
                 ],
               ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    child: Container(
-                      width: 120.0,
-                      height: 125.0,
-                      child: Card(
-                       child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center, // Center text vertically
-                            children: [
-                              Text(
-                                '11.11',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                '19 PM',
-                                style: TextStyle(
-                                  fontSize: 12, // Set the desired smaller font size
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      width: 120.0,
-                      height: 125.0,
-                      child: Card(
-                        child: Center(
-                          child: Text(
-                            'Gratis\nOngkir',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      width: 120.0,
-                      height: 125.0,
-                      child: Card(
-                        child: Center(
-                          child: Text(
-                            'Flash\nSale',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    child: Container(
-                      width: 120.0,
-                      height: 125.0,
-                      child: Card(
-                        child: Center(
-                          child: Text(
-                            'Murah\nLebay',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      width: 120.0,
-                      height: 125.0,
-                      child: Card(
-                        child: Center(
-                          child: Text(
-                            'Tagihan',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
-                  GestureDetector(
-                    child: Container(
-                      width: 120.0,
-                      height: 125.0,
-                      child: Card(
-                        child: Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center, // Center text vertically
-                            children: [
-                              Text(
-                                '11.11',
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                              Text(
-                                '19 PM',
-                                style: TextStyle(
-                                  fontSize: 12, // Set the desired smaller font size
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => DetailPage()),
-                      );
-                    },
-                  ),
+                  _buildCard('Murah', 'Lebay', () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  }),
+                  _buildCard('Tagihan', '', () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  }),
+                  _buildCard('11.11', '19 PM', () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => DetailPage()),
+                    );
+                  }),
                 ],
               ),
             ],
@@ -249,14 +168,11 @@ class _HomePageState extends State<HomePage> {
 
           switch (index) {
             case 0:
-              // Navigasi ke halaman pertama (Home)
               Navigator.pushNamed(context, '/home');
               break;
             case 1:
-              // Navigasi ke halaman detail
               Navigator.pushNamed(context, '/detail');
               break;
-            // ... (Tambahkan case sesuai dengan jumlah item di BottomNavigationBar)
           }
         },
       ),

@@ -87,24 +87,65 @@ class _DetailPageState extends State<DetailPage> {
   return GestureDetector(
     child: Container(
       width: 120.0,
-      height: 170.0,
+      height: 200.0,
       child: Card(
-        child: OverflowBox(
-          maxWidth: double.infinity,
-          child: Align(
-            alignment: FractionalOffset.bottomLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
+        color: Color.fromARGB(255, 227, 224, 224),
+        child: Column(
+          children: [
+            // Image with BoxFit.cover
+            Image.asset(
+              'assets/product1.jpeg', // Replace with your image path
+              width: double.infinity,
+              height: 120.0,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: Text(
-                stockMessage.toUpperCase(), // Convert to uppercase
+                'STOCK TERBATAS',
                 style: TextStyle(
-                  color: Colors.orange,
+                  fontSize: 12,
                   fontWeight: FontWeight.w800,
-                  fontSize: 10, // Make the text bold
+                  color: Color.fromARGB(255, 255, 132, 45),
                 ),
               ),
             ),
-          ),
+          ],
+        ),
+      ),
+    ),
+    onTap: () {
+      _showMyDialog(context);
+    },
+  );
+}
+Widget _buildCardWithImage() {
+  return GestureDetector(
+    child: Container(
+      width: 120.0,
+      height: 200.0,
+      child: Card(
+        color: Color.fromARGB(255, 227, 224, 224),
+        child: Column(
+          children: [
+            // Image with BoxFit.cover
+            Image.asset(
+              'assets/product.jpg',
+              width: double.infinity,
+              height: 120.0,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Product Name',
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     ),
@@ -123,7 +164,7 @@ class _DetailPageState extends State<DetailPage> {
           'SESI 9',
           style: TextStyle(
             color: const Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
             fontSize: 32.0,
           ),
         ),
@@ -164,7 +205,7 @@ class _DetailPageState extends State<DetailPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  for (int i = 0; i < 3; i++) _buildCard(),
+                  for (int i = 0; i < 3; i++) _buildCardWithImage(),
                 ],
               ),
               _buildFavoriteTextAndIcon(),
@@ -172,7 +213,15 @@ class _DetailPageState extends State<DetailPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  for (int i = 0; i < 3; i++) _buildCard(),
+                  for (int i = 0; i < 3; i++) _buildCardWithImage(),
+                ],
+              ),
+              _buildFavoriteTextAndIcon(),
+              SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  for (int i = 0; i < 3; i++) _buildCardWithImage(),
                 ],
               ),
               _buildFavoriteTextAndIcon(),

@@ -28,6 +28,10 @@ Widget build(BuildContext context) {
         icon: Icon(Icons.search),
         label: 'Detail',
       ),
+      BottomNavigationBarItem(
+        icon: Icon(Icons.account_circle_rounded),
+        label: 'Profile',
+      ),
       // Add other items as needed
     ],
   );
