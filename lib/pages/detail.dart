@@ -160,7 +160,7 @@ Widget _buildCardWithImage(String imagePath) {
             ClipRRect(
               borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
-                imagePath, // Use the parameter here
+                imagePath,
                 width: 110.0,
                 height: 110.0,
                 fit: BoxFit.cover,

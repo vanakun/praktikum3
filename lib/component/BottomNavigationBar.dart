@@ -14,7 +14,6 @@ Widget build(BuildContext context) {
   return BottomNavigationBar(
     currentIndex: currentIndex,
     onTap: (index) {
-      // Add validation to prevent tapping the current tab
       if (index != currentIndex) {
         onTap(index);
       }
@@ -32,7 +31,6 @@ Widget build(BuildContext context) {
         icon: Icon(Icons.account_circle_rounded),
         label: 'Profile',
       ),
-      // Add other items as needed
     ],
   );
 }
