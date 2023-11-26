@@ -128,7 +128,7 @@ class _DetailPageState extends State<DetailPage> {
               fit: BoxFit.cover,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(16.0),
               child: Text(
                 'STOCK TERBATAS',
                 style: TextStyle(
