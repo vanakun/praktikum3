@@ -87,7 +87,6 @@ class _DetailPageState extends State<DetailPage> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        
           Padding(
             padding: const EdgeInsets.only(left: 19.5),
             child: Text(
@@ -118,14 +117,20 @@ class _DetailPageState extends State<DetailPage> {
       height: 200.0,
       child: Card(
         color: Color.fromARGB(255, 227, 224, 224),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
         child: Column(
           children: [
-            // Image with BoxFit.cover
-            Image.asset(
-              'assets/product1.jpeg', // Replace with your image path
-              width: double.infinity,
-              height: 120.0,
-              fit: BoxFit.cover,
+            
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10.0),
+              child: Image.asset(
+                'assets/product1.jpeg',
+                width: 110.0,
+                height: 110.0,
+                fit: BoxFit.cover,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(16.0),
