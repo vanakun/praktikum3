@@ -46,7 +46,7 @@ class _DetailPageState extends State<DetailPage> {
         width: 120.0,
         height: 120.0,
         child: Card(
-          color: Color.fromARGB(255, 227, 224, 224), // Set the color to gray
+          color: Color.fromARGB(255, 227, 224, 224),
         ),
       ),
       onTap: () {
@@ -80,6 +80,34 @@ class _DetailPageState extends State<DetailPage> {
           ),
         ],
       ],
+    );
+  }
+
+  Widget _buildFavoriteTextAndIconend() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        
+          Padding(
+            padding: const EdgeInsets.only(left: 19.5),
+            child: Text(
+              '\$2',
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 60.0),
+            child: Icon(
+              Icons.favorite,
+              color: Colors.red,
+            ),
+          ),
+        ],
+      
     );
   }
 
@@ -119,20 +147,20 @@ class _DetailPageState extends State<DetailPage> {
     },
   );
 }
-Widget _buildCardWithImage() {
+Widget _buildCardWithImage(String imagePath) {
   return GestureDetector(
     child: SingleChildScrollView(
       child: Card(
         color: Color.fromARGB(255, 227, 224, 224),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0), // Adjust the radius as needed
+          borderRadius: BorderRadius.circular(10.0),
         ),
         child: Column(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(10.0), // Same radius as Card
+              borderRadius: BorderRadius.circular(10.0),
               child: Image.asset(
-                'assets/product.jpg',
+                imagePath, // Use the parameter here
                 width: 110.0,
                 height: 110.0,
                 fit: BoxFit.cover,
@@ -147,9 +175,6 @@ Widget _buildCardWithImage() {
     },
   );
 }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -197,29 +222,64 @@ Widget _buildCardWithImage() {
                 ],
               ),
               SizedBox(height: 15),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Column(
                 children: [
-                  for (int i = 0; i < 3; i++) _buildCardWithImage(),
+                  SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildCardWithImage('assets/product.jpg'),
+                      _buildCardWithImage('assets/product1.jpeg'),
+                      _buildCardWithImage('assets/product2.jpg'),
+                    ],
+                  ),
                 ],
               ),
               _buildFavoriteTextAndIcon(),
               SizedBox(height: 50),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Column(
                 children: [
-                  for (int i = 0; i < 3; i++) _buildCardWithImage(),
+                  SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildCardWithImage('assets/product3.jpeg'),
+                      _buildCardWithImage('assets/product5.jpg'),
+                      _buildCardWithImage('assets/product6.jpg'),
+                    ],
+                  ),
                 ],
               ),
               _buildFavoriteTextAndIcon(),
               SizedBox(height: 50),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+               Column(
                 children: [
-                  for (int i = 0; i < 3; i++) _buildCardWithImage(),
+                  SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      _buildCardWithImage('assets/product2.jpg'),
+                      _buildCardWithImage('assets/product1.jpeg'),
+                      _buildCardWithImage('assets/product4.jpg'),
+                    ],
+                  ),
                 ],
               ),
               _buildFavoriteTextAndIcon(),
+              SizedBox(height: 50),
+               Column(
+                children: [
+                  SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      _buildCardWithImage('assets/product.jpg'),
+                     
+                    ],
+                  ),
+                ],
+              ),
+              _buildFavoriteTextAndIconend(),
             ],
           ),
         ),
@@ -237,6 +297,9 @@ Widget _buildCardWithImage() {
               break;
             case 1:
               Navigator.pushNamed(context, '/detail');
+              break;
+            case 2:
+              Navigator.pushNamed(context, '/profile');
               break;
           }
         },

@@ -173,6 +173,9 @@ class _HomePageState extends State<HomePage> {
             case 1:
               Navigator.pushNamed(context, '/detail');
               break;
+            case 2:
+              Navigator.pushNamed(context, '/profile');
+              break;
           }
         },
       ),

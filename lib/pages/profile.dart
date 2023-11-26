@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:prak_1/auth/login.dart';
+import 'package:prak_1/pages/home.dart';
 
 class ProfileScreen extends StatelessWidget {
+
+ 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -10,7 +14,7 @@ class ProfileScreen extends StatelessWidget {
           'SESI 9',
           style: TextStyle(
             color: Colors.white,
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.bold,
             fontSize: 32.0,
           ),
         ),
@@ -18,8 +22,11 @@ class ProfileScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context);
-          },
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
+            },
         ),
         actions: [
           IconButton(
@@ -94,7 +101,9 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
+          
         ],
+        
       ),
     );
   }
