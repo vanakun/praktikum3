@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:prak_1/auth/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:prak_1/pages/home.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
 
- 
+class _ProfileScreenState extends State<ProfileScreen> {
+  late String nama;
+  late String nbi;
+  late String email;
+  late String adress;
+  late String instagram;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      nama = prefs.getString('name') ?? '';
+      nbi = prefs.getString('nbi') ?? '';
+      email = prefs.getString('email') ?? '';
+      adress = prefs.getString('adress') ?? '';
+      instagram = prefs.getString('instagram') ?? '';
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,21 +48,29 @@ class ProfileScreen extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => HomePage()),
-              );
-            },
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );
+          },
         ),
         actions: [
-          IconButton(
-            icon: Icon(Icons.logout, color: Colors.white),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => Login()),
-              );
-            },
+          Row(
+            children: [
+              Text(
+                'Logout',
+                style: TextStyle(color: Colors.white),
+              ),
+              IconButton(
+                icon: Icon(Icons.logout, color: Colors.white),
+                onPressed: () {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => Login()),
+                  );
+                },
+              ),
+            ],
           ),
         ],
       ),
@@ -59,14 +93,14 @@ class ProfileScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 8),
                   Text(
-                    'Dava Nabila Muzaky',
+                    nama,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    'vananabila28@gmail.com',
+                    email,
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.normal,
@@ -83,15 +117,17 @@ class ProfileScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             SizedBox(height: 8),
-                            _buildInfoRow('Nama', 'Dava Nabila Muzaky'),
+                            _buildInfoRow('Nama', nama),
                             _buildDivider(),
-                            _buildInfoRow('Nbi', '1462100153'),
+                            _buildInfoRow('Nbi', nbi),
                             _buildDivider(),
-                            _buildInfoRow('Kelas', 'PAB 9'),
+                            _buildInfoRow('Kelas', 'PAB 9'), // You can replace with the actual class
                             _buildDivider(),
-                            _buildInfoRow('Alamat', 'Villa Sentra Raya No 9'),
+                            _buildInfoRow('Email', email),
                             _buildDivider(),
-                            _buildInfoRow('Instagram', '@dava.nabb'),
+                            _buildInfoRow('Alamat', adress), // You can replace with the actual address
+                            _buildDivider(),
+                            _buildInfoRow('Instagram', instagram),
                           ],
                         ),
                       ),
@@ -101,9 +137,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
           ),
-          
         ],
-        
       ),
     );
   }

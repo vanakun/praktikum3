@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:prak_1/component/SplashScreen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:prak_1/pages/home.dart';
 
 class Login extends StatefulWidget {
@@ -24,7 +26,7 @@ class _LoginState extends State<Login> {
           ),
         ),
         backgroundColor: Colors.red,
-        automaticallyImplyLeading: false, // Menghapus tombol back
+        automaticallyImplyLeading: false, 
       ),
         body: SingleChildScrollView(
           child: Column(
@@ -69,8 +71,8 @@ class _LoginState extends State<Login> {
                   child: Column(
                     children: [
                       SizedBox(
-                        width: 300,
-                        height: 500,
+                        width: 250,
+                        height: 400,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20.0),
                           child: Image.asset(
@@ -93,21 +95,56 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () {
-                            // Navigate to HomePage
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => HomePage()),
-                            );
-                          },
-                      style: ButtonStyle(
-                          padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                              const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-                            ),
-                          ),
-                          child: const Text('Login'),
-                        ),
+                     
+  ElevatedButton(
+  onPressed: () {
+    // Navigate to HomePage
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  },
+  style: ElevatedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    primary: Colors.green,
+    padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+  ),
+  child: Text(
+    'Masuk',
+    style: TextStyle(
+      color: Colors.white,
+    ),
+  ),
+),
+                       const SizedBox(height: 20),
+                       ElevatedButton(
+  onPressed: () async {
+    // Reset all values in SharedPreferences
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+
+    // Navigate to RegisterPage
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SplashScreen()),
+    );
+  },
+  style: ElevatedButton.styleFrom(
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(10.0),
+    ),
+    primary: Colors.red,
+    padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+  ),
+  child: Text(
+    'Keluar',
+    style: TextStyle(
+      color: Colors.white,
+    ),
+  ),
+),
                     ],
                   ),
                 ),
