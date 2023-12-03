@@ -11,6 +11,21 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  late String nama;
+  late String nbi;
+
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+
+  Future<void> _loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      nama = prefs.getString('name') ?? '';
+      nbi = prefs.getString('nbi') ?? '';
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -58,7 +73,7 @@ class _LoginState extends State<Login> {
               ),
               Center(
                 child: Text(
-                  '1462100153',
+                  nbi,
                   style: TextStyle(
                     fontWeight: FontWeight.w800,
                     fontSize: 20,
@@ -86,7 +101,7 @@ class _LoginState extends State<Login> {
                       ),
                       Center(
                         child: Text(
-                          'Dava Nabila Muzaky',
+                          nama,
                           style: TextStyle(
                             fontFamily: 'Monaco',
                             fontWeight: FontWeight.bold,
@@ -121,11 +136,11 @@ class _LoginState extends State<Login> {
                        const SizedBox(height: 20),
                        ElevatedButton(
   onPressed: () async {
-    // Reset all values in SharedPreferences
+    
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.clear();
 
-    // Navigate to RegisterPage
+   
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => SplashScreen()),
