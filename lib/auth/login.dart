@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:prak_1/auth/pin.dart';
 import 'package:prak_1/component/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:prak_1/pages/home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);

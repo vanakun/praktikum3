@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prak_1/component/BottomNavigationBar.dart';
 import 'package:prak_1/pages/home.dart';
-import 'package:prak_1/pages/news.dart';
 
 class Pin extends StatefulWidget {
   const Pin({Key? key}) : super(key: key);
@@ -13,7 +11,6 @@ class Pin extends StatefulWidget {
 class LoginState extends State<Pin> {
   TextEditingController _pinController = TextEditingController();
 
-   int _currentIndex = 2;
 
   @override
   Widget build(BuildContext context) {
