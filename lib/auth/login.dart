@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:prak_1/auth/pin.dart';
 import 'package:prak_1/component/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:prak_1/pages/home.dart';
@@ -14,6 +15,7 @@ class _LoginState extends State<Login> {
   late String nama;
   late String nbi;
 
+  @override
   void initState() {
     super.initState();
     _loadUserData();
@@ -26,23 +28,24 @@ class _LoginState extends State<Login> {
       nbi = prefs.getString('nbi') ?? '';
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-         appBar: AppBar(
-        title: Text(
-          'SESI 9',
-          style: TextStyle(
-            color: const Color.fromARGB(255, 255, 255, 255),
-            fontWeight: FontWeight.w900,
-            fontSize: 32.0,
+        appBar: AppBar(
+          title: Text(
+            'SESI 9',
+            style: TextStyle(
+              color: const Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.w900,
+              fontSize: 32.0,
+            ),
           ),
+          backgroundColor: Colors.red,
+          automaticallyImplyLeading: false,
         ),
-        backgroundColor: Colors.red,
-        automaticallyImplyLeading: false, 
-      ),
         body: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -110,56 +113,51 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                     
-  ElevatedButton(
-  onPressed: () {
-    // Navigate to HomePage
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => HomePage()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    primary: Colors.green,
-    padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
-  ),
-  child: Text(
-    'Masuk',
-    style: TextStyle(
-      color: Colors.white,
-    ),
-  ),
-),
-                       const SizedBox(height: 20),
-                       ElevatedButton(
-  onPressed: () async {
-    
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
-
-   
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => SplashScreen()),
-    );
-  },
-  style: ElevatedButton.styleFrom(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    primary: Colors.red,
-    padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
-  ),
-  child: Text(
-    'Keluar',
-    style: TextStyle(
-      color: Colors.white,
-    ),
-  ),
-),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Pin()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          primary: Colors.green,
+                          padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+                        ),
+                        child: Text(
+                          'Masuk',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      ElevatedButton(
+                        onPressed: () async {
+                          final SharedPreferences prefs = await SharedPreferences.getInstance();
+                          await prefs.clear();
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => SplashScreen()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          primary: Colors.red,
+                          padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+                        ),
+                        child: Text(
+                          'Keluar',
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -171,4 +169,3 @@ class _LoginState extends State<Login> {
     );
   }
 }
-

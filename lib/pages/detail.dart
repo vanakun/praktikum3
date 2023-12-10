@@ -296,7 +296,7 @@ Widget _buildCardWithImage(String imagePath) {
             _currentIndex = index;
           });
 
-          switch (index) {
+           switch (index) {
             case 0:
               Navigator.pushNamed(context, '/home');
               break;
@@ -304,6 +304,9 @@ Widget _buildCardWithImage(String imagePath) {
               Navigator.pushNamed(context, '/detail');
               break;
             case 2:
+              Navigator.pushNamed(context, '/news');
+              break;  
+            case 3:
               Navigator.pushNamed(context, '/profile');
               break;
           }

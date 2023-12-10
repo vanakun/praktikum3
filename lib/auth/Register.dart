@@ -1,3 +1,4 @@
+//Dava Nabila Muzaky 1462100153
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -104,35 +105,34 @@ class _RegisterPageState extends State<RegisterPage> {
               ),
               SizedBox(height: 40),
               ElevatedButton(
-  onPressed: () async {
-    if (validateData()) {
-      await saveUserData();
-      Navigator.pushReplacementNamed(context, '/login');
-    } else {
+                onPressed: () async {             
+                  if (validateData()) {
+                    await saveUserData();
+                    Navigator.pushReplacementNamed(context, '/login');
+                  } else {
       
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('fields tidak boleh kosong'),
-          duration: Duration(seconds: 2),
-        ),
-      );
-    }
-  },
-  style: ElevatedButton.styleFrom(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10.0),
-    ),
-    primary: Colors.green,
-    minimumSize: Size(double.infinity, 50),
-  ),
-  child: Text(
-    'Daftar',
-    style: TextStyle(
-      color: Colors.white,
-    ),
-  ),
-),
-
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('fields tidak boleh kosong'),
+                        duration: Duration(seconds: 2),
+                      ),
+                    );
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  primary: Colors.green,
+                  minimumSize: Size(double.infinity, 50),
+                ),
+                child: Text(
+                  'Daftar',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

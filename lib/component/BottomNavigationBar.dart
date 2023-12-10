@@ -10,28 +10,34 @@ class MyBottomNavigationBar extends StatelessWidget {
   });
 
   @override
-Widget build(BuildContext context) {
-  return BottomNavigationBar(
-    currentIndex: currentIndex,
-    onTap: (index) {
-      if (index != currentIndex) {
-        onTap(index);
-      }
-    },
-    items: [
-      BottomNavigationBarItem(
-        icon: Icon(Icons.home),
-        label: 'Home',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.search),
-        label: 'Detail',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.account_circle_rounded),
-        label: 'Profile',
-      ),
-    ],
-  );
-}
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(
+      currentIndex: currentIndex,
+      onTap: (index) {
+        if (index != currentIndex) {
+          onTap(index);
+        }
+      },
+      selectedItemColor: Colors.red, 
+      unselectedItemColor: Colors.grey, 
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.search),
+          label: 'Detail',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.library_books),
+          label: 'News',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_circle_rounded),
+          label: 'Profile',
+        ),
+      ],
+    );
+  }
 }

@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:prak_1/auth/Register.dart';
 import 'package:prak_1/auth/login.dart';
+import 'package:prak_1/auth/pin.dart';
 import 'package:prak_1/component/SplashScreen.dart';
 import 'package:prak_1/pages/detail.dart';
 import 'package:prak_1/pages/home.dart';
+import 'package:prak_1/pages/news.dart';
 import 'package:prak_1/pages/profile.dart';
 
 void main() {
@@ -26,6 +28,8 @@ class MyApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/home': (context) => HomePage(),
         '/detail': (context) => DetailPage(),
+        '/pin': (context) => Pin(),
+        '/news': (context) => NewsScreen(),
         '/profile': (context) => ProfileScreen(),
       },
     );

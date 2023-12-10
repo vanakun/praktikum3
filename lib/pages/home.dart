@@ -19,7 +19,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return OrientationBuilder(
       builder: (context, orientation) {
-        // Set preferred orientations
         SystemChrome.setPreferredOrientations([
           DeviceOrientation.portraitUp,
           DeviceOrientation.portraitDown,
@@ -99,16 +98,19 @@ class _HomePageState extends State<HomePage> {
               });
 
               switch (index) {
-                case 0:
-                  Navigator.pushNamed(context, '/home');
-                  break;
-                case 1:
-                  Navigator.pushNamed(context, '/detail');
-                  break;
-                case 2:
-                  Navigator.pushNamed(context, '/profile');
-                  break;
-              }
+            case 0:
+              Navigator.pushNamed(context, '/home');
+              break;
+            case 1:
+              Navigator.pushNamed(context, '/detail');
+              break;
+            case 2:
+              Navigator.pushNamed(context, '/news');
+              break;  
+            case 3:
+              Navigator.pushNamed(context, '/profile');
+              break;
+          }
             },
           ),
         );

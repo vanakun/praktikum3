@@ -1,3 +1,4 @@
+//Dava Nabila Muzaky 1462100153
 import 'package:flutter/material.dart';
 import 'package:prak_1/auth/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -121,11 +122,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             _buildDivider(),
                             _buildInfoRow('Nbi', nbi),
                             _buildDivider(),
-                            _buildInfoRow('Kelas', 'PAB 9'), // You can replace with the actual class
+                            _buildInfoRow('Kelas', 'PAB 9'), 
                             _buildDivider(),
                             _buildInfoRow('Email', email),
                             _buildDivider(),
-                            _buildInfoRow('Alamat', adress), // You can replace with the actual address
+                            _buildInfoRow('Alamat', adress), 
                             _buildDivider(),
                             _buildInfoRow('Instagram', instagram),
                           ],
@@ -142,7 +143,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  // Widget to build each row of information
+  
   Widget _buildInfoRow(String label, String value) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -166,7 +167,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  // Widget to build a divider between rows
+  
   Widget _buildDivider() {
     return Divider();
   }
