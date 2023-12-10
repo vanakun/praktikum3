@@ -134,12 +134,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
                   ),
+                  SizedBox(height: 26),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Login()),
+                          );
+                        },
+                        style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          primary: Colors.red,
+                          padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+                        ),
+                        child: Text(
+                          'Logout',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 255, 255, 255),
+                          ),
+                        ),
+                      )
                 ],
               ),
             ),
           ),
         ],
       ),
+    
     );
   }
 

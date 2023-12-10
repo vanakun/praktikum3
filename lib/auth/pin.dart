@@ -66,7 +66,7 @@ class LoginState extends State<Pin> {
               child: ElevatedButton(
                 onPressed: () {
                   String enteredPin = _pinController.text;
-                  if (enteredPin == 'Daskom9') {
+                  if (enteredPin == 'untag17') {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
