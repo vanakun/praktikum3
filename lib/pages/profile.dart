@@ -1,8 +1,7 @@
 //Dava Nabila Muzaky 1462100153
 import 'package:flutter/material.dart';
-import 'package:prak_1/auth/login.dart';
+import 'package:prak_1/component/SplashScreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:prak_1/pages/home.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -46,34 +45,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
         ),
         backgroundColor: Colors.red,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.white),
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-        ),
-        actions: [
-          Row(
-            children: [
-              Text(
-                'Logout',
-                style: TextStyle(color: Colors.white),
-              ),
-              IconButton(
-                icon: Icon(Icons.logout, color: Colors.white),
-                onPressed: () {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => Login()),
-                  );
-                },
-              ),
-            ],
-          ),
-        ],
       ),
       body: ListView(
         shrinkWrap: true,
@@ -136,10 +107,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   SizedBox(height: 26),
                     ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          final SharedPreferences prefs = await SharedPreferences.getInstance();
+                          await prefs.clear();
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => Login()),
+                            MaterialPageRoute(builder: (context) => SplashScreen()),
                           );
                         },
                         style: ElevatedButton.styleFrom(
@@ -147,15 +120,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                           primary: Colors.red,
-                          padding: EdgeInsets.symmetric(horizontal: 120, vertical: 16),
+                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
                         ),
                         child: Text(
-                          'Logout',
+                          'Keluar',
                           style: TextStyle(
-                            color: Color.fromARGB(255, 255, 255, 255),
+                            color: Colors.white,
                           ),
                         ),
-                      )
+                      ),
                 ],
               ),
             ),

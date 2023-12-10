@@ -20,8 +20,30 @@ class _RegisterPageState extends State<RegisterPage> {
       emailController.text.isNotEmpty &&
       adressController.text.isNotEmpty &&
       instagramController.text.isNotEmpty;
-}
+  }
 
+   Future<void> _showMyDialog(context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(
+            'Fields Tidak boleh kosong',
+            style: TextStyle(fontSize: 15),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Kembali'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,13 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     await saveUserData();
                     Navigator.pushReplacementNamed(context, '/login');
                   } else {
-      
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text('fields tidak boleh kosong'),
-                        duration: Duration(seconds: 2),
-                      ),
-                    );
+                  _showMyDialog(context);
                   }
                 },
                 style: ElevatedButton.styleFrom(
